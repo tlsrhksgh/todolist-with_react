@@ -29,6 +29,7 @@ function App() {
 
     if (destination?.droppableId === source.droppableId) {
       setToDos((allBoards) => {
+        console.log(allBoards);
         const boardCopy = [...allBoards[source.droppableId]];
         const taskObj = boardCopy[source.index];
 

@@ -63,6 +63,9 @@ function Board({ toDos, boardId }: IBoardProps) {
       id: Date.now(),
       text: toDo,
     };
+
+    localStorage.setItem(boardId, JSON.stringify(newToDo));
+
     setToDos((allBoards) => {
       return {
         ...allBoards,
@@ -71,6 +74,7 @@ function Board({ toDos, boardId }: IBoardProps) {
     });
     setValue("toDo", "");
   };
+
   return (
     <Wrapper>
       <Title>{boardId}</Title>
@@ -95,6 +99,7 @@ function Board({ toDos, boardId }: IBoardProps) {
                 index={index}
                 toDoId={toDo.id}
                 toDoText={toDo.text}
+                boardId={boardId}
               />
             ))}
             {provide.placeholder}
